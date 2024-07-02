@@ -33,11 +33,9 @@ namespace WebApplication1.Pages.MyNotes
 
             return RedirectToPage("./Index");
         }
-        public async Task<IActionResult> OnGet()
+        public IActionResult OnGet()
         {
-            _context.Note.FirstOrDefault();
             return Page();
-
         }
     }
 }
