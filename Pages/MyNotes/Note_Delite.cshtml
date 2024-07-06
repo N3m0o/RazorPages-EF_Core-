@@ -1,12 +1,9 @@
 ﻿@page
-@model Note_Create
-
+@model WebApplication1.Pages.MyNotes.Note_Delite
 @{
     ViewData["Title"] = "Notes";
-  
 }
-
-<h1>Create</h1>
+<h1>Delite</h1>
 
 <h4>Note</h4>
 <hr />
@@ -20,7 +17,7 @@
                 <span asp-validation-for="Note.Mеssege" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Delite" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -31,5 +28,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

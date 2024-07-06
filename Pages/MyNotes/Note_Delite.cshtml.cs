@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication1.Model;
 
 namespace WebApplication1.Pages.MyNotes
 {
-    public class Note_Create : PageModel
+    public class Note_Delite : PageModel
     {
         private readonly NotesDbContext _context;
 
-        public Note_Create(NotesDbContext context)
+        public Note_Delite(NotesDbContext context)
         {
             _context = context;
         }
-
-        [BindProperty]
-        public Note Note { get; set; } = default!;
+       public Note Note { get; set; } 
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -28,7 +21,7 @@ namespace WebApplication1.Pages.MyNotes
                 return Page();
             }
 
-            _context.Note.Add(Note);
+            _context.Note.Remove(Note);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
